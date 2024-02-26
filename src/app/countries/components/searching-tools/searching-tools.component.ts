@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { ContinentData } from '../../models/ContinentData.interface';
 import { GraphQlQueryPayload } from '../../models/GraphQLQueryPayload.interface';
 
@@ -11,6 +17,9 @@ export class SearchingToolsComponent {
   @Output()
   querySearch = new EventEmitter<GraphQlQueryPayload>();
 
+  @ViewChild('countrySearch')
+  countrySearch!: ElementRef;
+
   dataOfContinents: ContinentData[] = [
     { name: 'Africa', selected: false },
     { name: 'America', selected: false },
@@ -21,5 +30,21 @@ export class SearchingToolsComponent {
 
   constructor() {}
 
-  onSearchQueryChange(): void {}
+  onDataOfContinentsChange(index: number): void {
+    if (index >= this.dataOfContinents.length) {
+      return;
+    }
+    this.dataOfContinents[index].selected =
+      !this.dataOfContinents[index].selected;
+
+    this.onSearchQueryChange();
+  }
+
+  onSearchQueryChange(): void {
+    const searchTerm = this.countrySearch.nativeElement.value;
+    console.log('searchTerm');
+    console.log(searchTerm);
+    console.log('this.dataOfContinents');
+    console.log(this.dataOfContinents);
+  }
 }

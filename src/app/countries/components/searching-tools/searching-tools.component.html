@@ -1,2 +1,16 @@
 <p>searching-tools works!</p>
-<input type="text" />
+<input type="text" #countrySearch (input)="onSearchQueryChange()" />
+
+<div>
+  <div
+    class="card"
+    *ngFor="let dataOfContinent of dataOfContinents; index as i"
+    [ngClass]="{
+      selected: dataOfContinent.selected
+    }"
+    (click)="onDataOfContinentsChange(i)"
+  >
+    <h2>{{ dataOfContinent.name }}</h2>
+    <p>{{ dataOfContinent.selected ? "Selected" : "Not selected" }}</p>
+  </div>
+</div>
