@@ -5,6 +5,7 @@ import { GraphQlQueryPayload } from '../../interfaces/graphql-query-payload.inte
 import { Observable } from 'rxjs';
 import { Country } from '../../interfaces/country.interface';
 import { GenericResponse } from 'src/app/interfaces/generic-response.interface';
+import { defaultCountriesQuery } from '../../utils/default-countries-query';
 
 @Component({
   selector: 'app-countries-fetcher',
@@ -13,15 +14,10 @@ import { GenericResponse } from 'src/app/interfaces/generic-response.interface';
 })
 export class CountriesFetcherComponent implements OnInit {
   dataOfCountries$!: Observable<GenericResponse<Country[]>>;
-  initialQuery: GraphQlQueryPayload = {
-    continents: [],
-    searchTerm: '',
-  };
-
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
-    this.retrieveDataOfCountries(this.initialQuery);
+    this.retrieveDataOfCountries(defaultCountriesQuery);
   }
 
   retrieveDataOfCountries(queryPayload: GraphQlQueryPayload): void {

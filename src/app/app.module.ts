@@ -10,6 +10,7 @@ import { Mock2Component } from './countries/containers/mock2/mock2.component';
 import { SearchingToolsComponent } from './countries/components/searching-tools/searching-tools.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CountryCardComponent } from './countries/components/country-card/country-card.component';
 // import { GraphQLModule } from './graphql.module';
 // import { HttpClientModule } from '@angular/common/http';
 
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     Mock1Component,
     Mock2Component,
     SearchingToolsComponent,
+    CountryCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, GraphQLModule, HttpClientModule],
   providers: [],

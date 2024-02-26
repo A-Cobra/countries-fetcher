@@ -7,6 +7,8 @@ import {
 } from '@angular/core';
 import { Continent } from '../../interfaces/continent.interface';
 import { GraphQlQueryPayload } from '../../interfaces/graphql-query-payload.interface';
+import { defaultCountriesQuery } from '../../utils/default-countries-query';
+import { defaultDataOfContinents } from '../../utils/default-data-of-continents';
 
 @Component({
   selector: 'app-searching-tools',
@@ -20,15 +22,9 @@ export class SearchingToolsComponent {
   @ViewChild('countrySearch')
   countrySearch!: ElementRef;
 
-  dataOfContinents: Continent[] = [
-    { name: 'Africa', selected: false, code: 'AF' },
-    { name: 'Antarctica', selected: false, code: 'AN' },
-    { name: 'Asia', selected: false, code: 'AS' },
-    { name: 'Europe', selected: false, code: 'EU' },
-    { name: 'North America', selected: false, code: 'NA' },
-    { name: 'South America', selected: false, code: 'SA' },
-    { name: 'Oceania', selected: false, code: 'OC' },
-  ];
+  dataOfContinents: Continent[] = JSON.parse(
+    JSON.stringify(defaultDataOfContinents)
+  );
 
   constructor() {}
 
@@ -54,5 +50,11 @@ export class SearchingToolsComponent {
         .filter((dataOfContinent) => dataOfContinent.selected)
         .map((dataOfContinent) => dataOfContinent.code),
     });
+  }
+
+  onResetFilters(): void {
+    this.countrySearch.nativeElement.value = '';
+    this.dataOfContinents = JSON.parse(JSON.stringify(defaultDataOfContinents));
+    this.querySearch.emit(defaultCountriesQuery);
   }
 }

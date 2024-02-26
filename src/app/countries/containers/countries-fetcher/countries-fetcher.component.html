@@ -1,12 +1,15 @@
 <app-searching-tools
   (querySearch)="retrieveDataOfCountries($event)"
 ></app-searching-tools>
-<div *ngIf="dataOfCountries$ | async as dataOfCountries">
+<div
+  *ngIf="dataOfCountries$ | async as dataOfCountries"
+  class="country-cards-component"
+>
   {{ dataOfCountries.data["countries"] | json }}
   <div
+    class="country-card-wrapper"
     *ngFor="let dataOfCountry of dataOfCountries.data['countries']"
-    style="border: 2px solid black; margin-bottom: 4px"
   >
-    {{ dataOfCountry | json }}
+    <app-country-card [dataOfCountry]="dataOfCountry"></app-country-card>
   </div>
 </div>

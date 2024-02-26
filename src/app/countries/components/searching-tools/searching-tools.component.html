@@ -1,6 +1,9 @@
 <p>searching-tools works!</p>
 <input type="text" #countrySearch />
 <button (click)="onSearchQueryChange()">Search</button>
+<button (click)="onResetFilters()">Reset filters</button>
+
+<pre>{{ dataOfContinents | json }}</pre>
 
 <div>
   <div
