@@ -40,10 +40,6 @@ export class SearchingToolsComponent {
 
   onSearchQueryChange(): void {
     const searchTerm = this.countrySearch.nativeElement.value;
-    console.log('searchTerm');
-    console.log(searchTerm);
-    console.log('this.dataOfContinents');
-    console.log(this.dataOfContinents);
     this.querySearch.emit({
       searchTerm,
       continents: this.dataOfContinents

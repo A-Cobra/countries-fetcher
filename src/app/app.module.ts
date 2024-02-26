@@ -11,8 +11,7 @@ import { SearchingToolsComponent } from './countries/components/searching-tools/
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CountryCardComponent } from './countries/components/country-card/country-card.component';
-// import { GraphQLModule } from './graphql.module';
-// import { HttpClientModule } from '@angular/common/http';
+import { LanguagesPipe } from './countries/pipes/languages.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +22,7 @@ import { CountryCardComponent } from './countries/components/country-card/countr
     Mock2Component,
     SearchingToolsComponent,
     CountryCardComponent,
+    LanguagesPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, GraphQLModule, HttpClientModule],
   providers: [],

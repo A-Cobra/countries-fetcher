@@ -4,4 +4,18 @@ $border-radius: 20px;
   padding: 10px 15px;
   border: solid 2px black;
   border-radius: $border-radius;
+  &-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    .logo-container {
+      font-size: 30px;
+    }
+  }
+}
+
+.regions-container {
+  overflow-y: auto;
+  max-height: 120px;
 }

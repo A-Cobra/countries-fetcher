@@ -1,0 +1,28 @@
+<div class="country-card">
+  <div class="country-card-header">
+    <div class="logo-container">{{ dataOfCountry.emoji }}</div>
+    <section class="information">
+      <h3>{{ dataOfCountry.name }}</h3>
+      <p>{{ dataOfCountry.continent.name }}</p>
+    </section>
+  </div>
+  <div *ngIf="hasExtendedVersion" class="country-card-body">
+    <h3>Capital: {{ dataOfCountry.capital }}</h3>
+    <h3>
+      Language:
+      {{ dataOfCountry.languages | languages }}
+    </h3>
+    <h3>Currency: {{ dataOfCountry.currencies.join(", ") }}</h3>
+    <div
+      class="regions-container-wrapper"
+      *ngIf="dataOfCountry.states.length > 0"
+    >
+      <h3>Region</h3>
+      <div class="regions-container">
+        <p *ngFor="let region of dataOfCountry.states">
+          {{ region.name }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,3 +13,8 @@
     <app-country-card [dataOfCountry]="dataOfCountry"></app-country-card>
   </div>
 </div>
+<div
+  *ngIf="isCountrySelected && (dataOfCountryById$ | async) as dataOfCountryById"
+>
+  {{ dataOfCountryById | json }}
+</div>

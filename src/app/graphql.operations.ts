@@ -1,24 +1,6 @@
 import { gql } from 'apollo-angular';
 import { GraphQlQueryPayload } from './countries/interfaces/graphql-query-payload.interface';
-
-export const GET_COUNTRIES_DATA = gql`
-  query {
-    countries(
-      filter: { name: { regex: "" }, continent: { in: ["NA", "SA"] } }
-    ) {
-      code
-      currencies
-      currency
-      name
-      continent {
-        name
-        code
-      }
-      currency
-      code
-    }
-  }
-`;
+import { getCapitalizedRegex } from './utils/get-capitalized-regex';
 
 export function getFilteredCountriesQuery({
   continents,
@@ -50,30 +32,52 @@ export function getFilteredCountriesQuery({
         }
         currency
         code
+        capital
+        languages {
+          code
+          name
+        }
+        currencies
+        states {
+          code
+          name
+        }
+        emoji
       }
     }
   `;
 
-  console.log('searchTermQuery');
-  console.log(searchTermQuery);
-  console.log('searchTermQuery');
-  console.log(searchTermQuery);
-  console.log('query');
-  console.log(query);
   return gql(query);
 }
 
-function getCapitalizedRegex(originalString: string): string {
-  const words = originalString.split(' ').filter((word) => word);
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i];
-    console.log('word');
-    console.log(word);
-    const regex = `[${word.slice(0, 1).toLowerCase()}${word
-      .slice(0, 1)
-      .toUpperCase()}]${word.slice(1)}`;
-    console.log(regex);
-    words[i] = regex;
+export function getCountryById(countryCode: string) {
+  const query = `
+  {
+    country(code: "${countryCode}") {
+      code
+      currencies
+      currency
+      name
+      continent {
+        name
+        code
+      }
+      currency
+      code
+      capital
+      languages {
+        code
+        name
+      }
+      currencies
+      states {
+        code
+        name
+      }
+      emoji
+    }
   }
-  return words.length > 0 ? words.join(' ') : '';
+  `;
+
+  return gql(query);
 }

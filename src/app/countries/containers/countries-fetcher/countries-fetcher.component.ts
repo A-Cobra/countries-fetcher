@@ -14,6 +14,8 @@ import { defaultCountriesQuery } from '../../utils/default-countries-query';
 })
 export class CountriesFetcherComponent implements OnInit {
   dataOfCountries$!: Observable<GenericResponse<Country[]>>;
+  isCountrySelected = false;
+  dataOfCountryById$!: Observable<GenericResponse<Country>> | undefined;
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
@@ -23,5 +25,16 @@ export class CountriesFetcherComponent implements OnInit {
   retrieveDataOfCountries(queryPayload: GraphQlQueryPayload): void {
     this.dataOfCountries$ =
       this.countriesService.dataOfCountries$(queryPayload);
+  }
+
+  onCountrySelection(countryCode: string) {
+    if (!this.isCountrySelected) {
+      this.dataOfCountryById$ =
+        this.countriesService.dataOfCountryById$(countryCode);
+      this.isCountrySelected = true;
+      return;
+    }
+    this.dataOfCountryById$ = undefined;
+    this.isCountrySelected = false;
   }
 }
