@@ -21,11 +21,13 @@ export class SearchingToolsComponent {
   countrySearch!: ElementRef;
 
   dataOfContinents: ContinentData[] = [
-    { name: 'Africa', selected: false },
-    { name: 'America', selected: false },
-    { name: 'Asia', selected: false },
-    { name: 'Europe', selected: false },
-    { name: 'Oceania', selected: false },
+    { name: 'Africa', selected: false, code: 'AF' },
+    { name: 'Antarctica', selected: false, code: 'AN' },
+    { name: 'Asia', selected: false, code: 'AS' },
+    { name: 'Europe', selected: false, code: 'EU' },
+    { name: 'North America', selected: false, code: 'NA' },
+    { name: 'South America', selected: false, code: 'SA' },
+    { name: 'Oceania', selected: false, code: 'OC' },
   ];
 
   constructor() {}
