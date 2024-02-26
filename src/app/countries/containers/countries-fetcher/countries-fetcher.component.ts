@@ -9,9 +9,13 @@ import { CountriesService } from '../../services/countries.service';
 })
 export class CountriesFetcherComponent implements OnInit {
   dataOfCountries$!: any;
+
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
-    this.countriesService.dataOfCountries();
+    this.countriesService.dataOfCountries$({
+      continents: [],
+      searchTerm: 'sp',
+    });
   }
 }

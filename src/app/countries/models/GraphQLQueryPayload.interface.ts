@@ -1,6 +1,6 @@
 import { ContinentData } from './ContinentData.interface';
 
 export interface GraphQlQueryPayload {
-  dataOfContinents: ContinentData[];
+  continents: string[];
   searchTerm: string;
 }
