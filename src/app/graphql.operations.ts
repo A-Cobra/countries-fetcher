@@ -1,5 +1,5 @@
 import { gql } from 'apollo-angular';
-import { GraphQlQueryPayload } from './countries/models/GraphQLQueryPayload.interface';
+import { GraphQlQueryPayload } from './countries/interfaces/graphql-query-payload.interface';
 
 export const GET_COUNTRIES_DATA = gql`
   query {

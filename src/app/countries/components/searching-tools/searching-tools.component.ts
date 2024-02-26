@@ -5,8 +5,8 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { ContinentData } from '../../models/ContinentData.interface';
-import { GraphQlQueryPayload } from '../../models/GraphQLQueryPayload.interface';
+import { Continent } from '../../interfaces/continent.interface';
+import { GraphQlQueryPayload } from '../../interfaces/graphql-query-payload.interface';
 
 @Component({
   selector: 'app-searching-tools',
@@ -20,7 +20,7 @@ export class SearchingToolsComponent {
   @ViewChild('countrySearch')
   countrySearch!: ElementRef;
 
-  dataOfContinents: ContinentData[] = [
+  dataOfContinents: Continent[] = [
     { name: 'Africa', selected: false, code: 'AF' },
     { name: 'Antarctica', selected: false, code: 'AN' },
     { name: 'Asia', selected: false, code: 'AS' },

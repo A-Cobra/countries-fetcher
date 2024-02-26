@@ -5,7 +5,8 @@ import {
   GET_COUNTRIES_DATA,
   getFilteredCountriesQuery,
 } from 'src/app/graphql.operations';
-import { GraphQlQueryPayload } from '../models/GraphQLQueryPayload.interface';
+import { GraphQlQueryPayload } from '../interfaces/graphql-query-payload.interface';
+import { Country } from '../interfaces/country.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,8 @@ export class CountriesService {
   dataOfCountries$(payload: GraphQlQueryPayload) {
     console.log('data of countries');
     // getFilteredCountriesQuery(payload);
-    return this.apollo.watchQuery({ query: getFilteredCountriesQuery(payload) })
-      .valueChanges;
+    return this.apollo.watchQuery<{ country: Country[] }>({
+      query: getFilteredCountriesQuery(payload),
+    }).valueChanges;
   }
 }
