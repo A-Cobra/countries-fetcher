@@ -48,5 +48,11 @@ export class SearchingToolsComponent {
     console.log(searchTerm);
     console.log('this.dataOfContinents');
     console.log(this.dataOfContinents);
+    this.querySearch.emit({
+      searchTerm,
+      continents: this.dataOfContinents
+        .filter((dataOfContinent) => dataOfContinent.selected)
+        .map((dataOfContinent) => dataOfContinent.code),
+    });
   }
 }

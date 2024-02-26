@@ -1,4 +1,6 @@
-<app-searching-tools></app-searching-tools>
+<app-searching-tools
+  (querySearch)="retrieveDataOfCountries($event)"
+></app-searching-tools>
 <div *ngIf="dataOfCountries$ | async as dataOfCountries">
   {{ dataOfCountries | json }}
   <!-- <div *ngFor="let dataOfCountry of dataOfCountries">
