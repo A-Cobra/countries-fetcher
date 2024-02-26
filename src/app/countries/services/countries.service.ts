@@ -15,14 +15,8 @@ export class CountriesService {
 
   dataOfCountries$(payload: GraphQlQueryPayload) {
     console.log('data of countries');
-    getFilteredCountriesQuery(payload);
-    // this.apollo
-    //   .watchQuery({ query: GET_COUNTRIES_DATA })
-    //   .valueChanges.subscribe(({ data, error }: any) => {
-    //     console.log('data within service');
-    //     console.log(data);
-    //     console.log('error within service');
-    //     console.log(error);
-    //   });
+    // getFilteredCountriesQuery(payload);
+    return this.apollo.watchQuery({ query: getFilteredCountriesQuery(payload) })
+      .valueChanges;
   }
 }

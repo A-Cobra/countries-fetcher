@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { CountriesService } from '../../services/countries.service';
+import { GraphQlQueryPayload } from '../../models/GraphQLQueryPayload.interface';
 
 @Component({
   selector: 'app-countries-fetcher',
@@ -9,13 +10,19 @@ import { CountriesService } from '../../services/countries.service';
 })
 export class CountriesFetcherComponent implements OnInit {
   dataOfCountries$!: any;
+  initialQuery: GraphQlQueryPayload = {
+    continents: [],
+    searchTerm: '',
+  };
 
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
-    this.countriesService.dataOfCountries$({
-      continents: [],
-      searchTerm: 'sp',
-    });
+    this.retrieveDataOfCountries(this.initialQuery);
+  }
+
+  retrieveDataOfCountries(queryPayload: GraphQlQueryPayload): void {
+    this.dataOfCountries$ =
+      this.countriesService.dataOfCountries$(queryPayload);
   }
 }
