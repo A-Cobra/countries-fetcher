@@ -1,7 +1,14 @@
 <header>
   <nav>
+    <div>Logo</div>
     <ul>
-      <li></li>
+      <ng-container *ngFor="let navigationRoute of navigationRoutes">
+        <a [routerLink]="navigationRoute.path">
+          <li>
+            {{ navigationRoute.name }}
+          </li></a
+        >
+      </ng-container>
     </ul>
   </nav>
 </header>
