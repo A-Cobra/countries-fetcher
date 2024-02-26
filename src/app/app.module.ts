@@ -7,9 +7,10 @@ import { CountriesFetcherComponent } from './countries/containers/countries-fetc
 import { SidebarComponent } from './countries/components/sidebar/sidebar.component';
 import { Mock1Component } from './countries/containers/mock1/mock1.component';
 import { Mock2Component } from './countries/containers/mock2/mock2.component';
+import { SearchingToolsComponent } from './countries/components/searching-tools/searching-tools.component';
 
 @NgModule({
-  declarations: [AppComponent, CountriesFetcherComponent, SidebarComponent, Mock1Component, Mock2Component],
+  declarations: [AppComponent, CountriesFetcherComponent, SidebarComponent, Mock1Component, Mock2Component, SearchingToolsComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
