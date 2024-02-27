@@ -1,16 +1,33 @@
-<div>
-  <input type="text" #countrySearch />
+<div class="searching-tools">
+  <label for="country">Country Name</label>
+  <input
+    type="text"
+    #countrySearch
+    (focus)="showCountriesFilter()"
+    (input)="hideCountriesFilter()"
+    id="country"
+    placeholder="United Kingdom"
+  />
   <button (click)="onSearchQueryChange()">Search</button>
   <button (click)="onResetFilters()">Reset filters</button>
   <div
-    class="card"
-    *ngFor="let dataOfContinent of dataOfContinents; index as i"
-    [ngClass]="{
-      selected: dataOfContinent.selected
-    }"
-    (click)="onDataOfContinentsChange(i)"
+    class="filters-container-wrapper"
+    [ngStyle]="{ display: areFiltersDisplayed ? 'grid' : 'none' }"
   >
-    <h2>{{ dataOfContinent.name }}</h2>
-    <p>{{ dataOfContinent.selected ? "Selected" : "Not selected" }}</p>
+    <h2>Filter by country</h2>
+    <div class="filters-container">
+      <div
+        class="card"
+        *ngFor="let dataOfContinent of dataOfContinents; index as i"
+        [ngClass]="{
+          selected: dataOfContinent.selected
+        }"
+        (click)="onDataOfContinentsChange(i)"
+      >
+        <h2>{{ dataOfContinent.name }}</h2>
+        <p>{{ dataOfContinent.selected ? "Selected" : "Not selected" }}</p>
+      </div>
+    </div>
+    <div class="close-button" (click)="hideCountriesFilter()">x</div>
   </div>
 </div>

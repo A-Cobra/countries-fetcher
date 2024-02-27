@@ -26,6 +26,8 @@ export class SearchingToolsComponent {
     JSON.stringify(defaultDataOfContinents)
   );
 
+  areFiltersDisplayed = false;
+
   constructor() {}
 
   onDataOfContinentsChange(index: number): void {
@@ -52,5 +54,15 @@ export class SearchingToolsComponent {
     this.countrySearch.nativeElement.value = '';
     this.dataOfContinents = JSON.parse(JSON.stringify(defaultDataOfContinents));
     this.querySearch.emit(defaultCountriesQuery);
+  }
+
+  hideCountriesFilter() {
+    console.log('Clicked outside the input');
+    this.areFiltersDisplayed = false;
+  }
+
+  showCountriesFilter() {
+    console.log('CLicked on the input');
+    this.areFiltersDisplayed = true;
   }
 }
