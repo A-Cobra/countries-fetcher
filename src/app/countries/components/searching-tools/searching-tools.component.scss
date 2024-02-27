@@ -1,7 +1,13 @@
 $light-gray: rgba(230, 230, 230, 1);
+$burgundy: rgba(128, 0, 32, 1);
+$jungle-green: rgb(41, 171, 135);
+$tropical-green: rgb(0, 117, 94);
+$medium-gray: rgba(180, 180, 180, 1);
 
 .searching-tools {
   position: relative;
+  display: grid;
+  place-content: center;
 }
 
 .card {
@@ -25,7 +31,7 @@ $light-gray: rgba(230, 230, 230, 1);
   &-wrapper {
     background-color: $light-gray;
     position: absolute;
-    top: 50px;
+    top: 115px;
     left: 30px;
     right: 30px;
     border-radius: 10px;
@@ -40,5 +46,72 @@ $light-gray: rgba(230, 230, 230, 1);
       font-size: 20px;
       cursor: pointer;
     }
+  }
+}
+
+.main-controls {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 25px;
+  row-gap: 20px;
+  background-color: $medium-gray;
+  padding: 25px 35px;
+  border-radius: 1000000000px;
+  .form-control {
+    position: relative;
+    display: grid;
+    row-gap: 4px;
+    label {
+      font-size: 25px;
+      font-weight: 700;
+    }
+    input {
+      border: none;
+      font-size: 15px;
+      background-color: transparent;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 4px;
+      width: 85%;
+      background-color: $light-gray;
+    }
+  }
+}
+
+.button__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.button__search,
+.button__reset {
+  padding: 6px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.button__search {
+  background-color: ($jungle-green);
+  &:hover {
+    background-color: ($tropical-green);
+    color: white;
+  }
+}
+
+.button__reset {
+  background-color: red;
+  color: white;
+  &:hover {
+    background-color: $burgundy;
   }
 }

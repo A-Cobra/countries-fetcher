@@ -1,15 +1,25 @@
 <div class="searching-tools">
-  <label for="country">Country Name</label>
-  <input
-    type="text"
-    #countrySearch
-    (focus)="showCountriesFilter()"
-    (input)="hideCountriesFilter()"
-    id="country"
-    placeholder="United Kingdom"
-  />
-  <button (click)="onSearchQueryChange()">Search</button>
-  <button (click)="onResetFilters()">Reset filters</button>
+  <div class="main-controls">
+    <div class="form-control">
+      <label for="country">Country Name</label>
+      <input
+        type="text"
+        #countrySearch
+        (focus)="showCountriesFilter()"
+        (input)="hideCountriesFilter()"
+        id="country"
+        placeholder="United Kingdom"
+      />
+    </div>
+    <div class="button__container">
+      <button class="button__search" (click)="onSearchQueryChange()">
+        Search
+      </button>
+      <button class="button__reset" (click)="onResetFilters()">
+        Reset filters
+      </button>
+    </div>
+  </div>
   <div
     class="filters-container-wrapper"
     [ngStyle]="{ display: areFiltersDisplayed ? 'grid' : 'none' }"
