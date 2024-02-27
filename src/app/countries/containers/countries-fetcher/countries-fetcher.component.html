@@ -10,11 +10,18 @@
     class="country-card-wrapper"
     *ngFor="let dataOfCountry of dataOfCountries.data['countries']"
   >
-    <app-country-card [dataOfCountry]="dataOfCountry"></app-country-card>
+    <app-country-card
+      [dataOfCountry]="dataOfCountry"
+      (countryCardClick)="onCountryCardClickHandle($event)"
+    ></app-country-card>
   </div>
 </div>
 <div
   *ngIf="isCountrySelected && (dataOfCountryById$ | async) as dataOfCountryById"
 >
   {{ dataOfCountryById | json }}
+  <app-country-card
+    [dataOfCountry]="dataOfCountryById.data['country']"
+    [hasExtendedVersion]="true"
+  ></app-country-card>
 </div>

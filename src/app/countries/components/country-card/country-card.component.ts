@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Country } from '../../interfaces/country.interface';
 
 @Component({
@@ -10,4 +10,10 @@ export class CountryCardComponent {
   @Input() dataOfCountry!: Country;
 
   @Input() hasExtendedVersion = true;
+
+  @Output() countryCardClick = new EventEmitter<string>();
+
+  onCountryCardClick(countryCode: string) {
+    this.countryCardClick.emit(countryCode);
+  }
 }

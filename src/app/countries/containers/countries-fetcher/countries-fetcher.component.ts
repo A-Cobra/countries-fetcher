@@ -16,6 +16,7 @@ export class CountriesFetcherComponent implements OnInit {
   dataOfCountries$!: Observable<GenericResponse<Country[]>>;
   isCountrySelected = false;
   dataOfCountryById$!: Observable<GenericResponse<Country>> | undefined;
+  previousSelectedCountryCode = '';
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
@@ -28,13 +29,18 @@ export class CountriesFetcherComponent implements OnInit {
   }
 
   onCountrySelection(countryCode: string) {
-    if (!this.isCountrySelected) {
-      this.dataOfCountryById$ =
-        this.countriesService.dataOfCountryById$(countryCode);
-      this.isCountrySelected = true;
+    if (this.previousSelectedCountryCode === countryCode) {
+      this.dataOfCountryById$ = undefined;
+      this.isCountrySelected = false;
       return;
     }
-    this.dataOfCountryById$ = undefined;
-    this.isCountrySelected = false;
+    this.dataOfCountryById$ =
+      this.countriesService.dataOfCountryById$(countryCode);
+    this.isCountrySelected = true;
+    this.previousSelectedCountryCode = countryCode;
+  }
+
+  onCountryCardClickHandle(countryCode: string) {
+    this.onCountrySelection(countryCode);
   }
 }
