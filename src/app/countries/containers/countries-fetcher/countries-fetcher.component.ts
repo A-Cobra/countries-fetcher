@@ -32,6 +32,7 @@ export class CountriesFetcherComponent implements OnInit {
     if (this.previousSelectedCountryCode === countryCode) {
       this.dataOfCountryById$ = undefined;
       this.isCountrySelected = false;
+      this.previousSelectedCountryCode = '';
       return;
     }
     this.dataOfCountryById$ =

@@ -13,6 +13,7 @@
     <app-country-card
       [dataOfCountry]="dataOfCountry"
       (countryCardClick)="onCountryCardClickHandle($event)"
+      [isSelected]="dataOfCountry.code === previousSelectedCountryCode"
     ></app-country-card>
   </div>
 </div>

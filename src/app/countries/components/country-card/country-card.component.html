@@ -1,4 +1,8 @@
-<div class="country-card" (click)="onCountryCardClick(dataOfCountry.code)">
+<div
+  class="country-card"
+  (click)="onCountryCardClick(dataOfCountry.code)"
+  [ngClass]="{ selected: isSelected }"
+>
   <div class="country-card-header">
     <div class="logo-container">{{ dataOfCountry.emoji }}</div>
     <section class="information">

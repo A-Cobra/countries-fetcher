@@ -9,9 +9,11 @@ import { Country } from '../../interfaces/country.interface';
 export class CountryCardComponent {
   @Input() dataOfCountry!: Country;
 
-  @Input() hasExtendedVersion = true;
+  @Input() hasExtendedVersion = false;
 
   @Output() countryCardClick = new EventEmitter<string>();
+
+  @Input() isSelected = false;
 
   onCountryCardClick(countryCode: string) {
     this.countryCardClick.emit(countryCode);
