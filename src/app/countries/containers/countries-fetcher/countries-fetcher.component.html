@@ -24,5 +24,6 @@
   <app-country-card
     [dataOfCountry]="dataOfCountryById.data['country']"
     [hasExtendedVersion]="true"
+    (closeExtendedCard)="onCloseExtendedCard()"
   ></app-country-card>
 </div>

@@ -13,9 +13,15 @@ export class CountryCardComponent {
 
   @Output() countryCardClick = new EventEmitter<string>();
 
+  @Output() closeExtendedCard = new EventEmitter();
+
   @Input() isSelected = false;
 
   onCountryCardClick(countryCode: string) {
     this.countryCardClick.emit(countryCode);
+  }
+
+  onCloseExtendedCard() {
+    this.closeExtendedCard.emit();
   }
 }

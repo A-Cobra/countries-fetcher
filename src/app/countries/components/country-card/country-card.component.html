@@ -29,4 +29,11 @@
       </div>
     </div>
   </div>
+  <div
+    *ngIf="hasExtendedVersion"
+    class="close-icon"
+    (click)="onCloseExtendedCard()"
+  >
+    X
+  </div>
 </div>

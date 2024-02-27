@@ -28,11 +28,12 @@ export class CountriesFetcherComponent implements OnInit {
       this.countriesService.dataOfCountries$(queryPayload);
   }
 
-  onCountrySelection(countryCode: string) {
+  onCountrySelection(countryCode: string): void {
     if (this.previousSelectedCountryCode === countryCode) {
-      this.dataOfCountryById$ = undefined;
-      this.isCountrySelected = false;
-      this.previousSelectedCountryCode = '';
+      // this.dataOfCountryById$ = undefined;
+      // this.isCountrySelected = false;
+      // this.previousSelectedCountryCode = '';
+      this.resetCountrySelectionParams();
       return;
     }
     this.dataOfCountryById$ =
@@ -41,7 +42,17 @@ export class CountriesFetcherComponent implements OnInit {
     this.previousSelectedCountryCode = countryCode;
   }
 
-  onCountryCardClickHandle(countryCode: string) {
+  onCountryCardClickHandle(countryCode: string): void {
     this.onCountrySelection(countryCode);
+  }
+
+  onCloseExtendedCard(): void {
+    this.resetCountrySelectionParams();
+  }
+
+  resetCountrySelectionParams(): void {
+    this.dataOfCountryById$ = undefined;
+    this.isCountrySelected = false;
+    this.previousSelectedCountryCode = '';
   }
 }

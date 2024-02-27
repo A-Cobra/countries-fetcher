@@ -5,6 +5,7 @@ $selected-background-color: rgb(125, 125, 125);
   padding: 10px 15px;
   border: solid 2px black;
   border-radius: $border-radius;
+  position: relative;
   &-header {
     display: flex;
     flex-wrap: wrap;
@@ -16,6 +17,16 @@ $selected-background-color: rgb(125, 125, 125);
   }
   &.selected {
     background-color: $selected-background-color;
+  }
+  .close-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 20px;
+    cursor: pointer;
+    right: 15px;
+    top: 15px;
   }
 }
 
