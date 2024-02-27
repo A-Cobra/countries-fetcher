@@ -2,6 +2,9 @@
   <div class="app-sidebar-wrapper">
     <app-sidebar></app-sidebar>
   </div>
+  <div class="mobile-sidebar-wrapper">
+    <app-sidebar [isMobileVersion]="true"></app-sidebar>
+  </div>
   <main>
     <router-outlet></router-outlet>
   </main>

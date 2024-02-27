@@ -2,14 +2,39 @@
   .app-sidebar-wrapper {
     width: 220px;
     position: fixed;
-    left: 0;
+    left: -220px;
     top: 0;
     bottom: 0;
+    display: grid;
+    transition: 0.2s ease;
+    z-index: 200;
   }
+
   main {
-    margin-left: 220px;
+    transition: 0.2s ease;
+  }
+
+  .mobile-sidebar-wrapper {
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: block;
+    z-index: 200;
   }
 }
 
 @media screen and (min-width: 678px) {
+  .main-page .app-sidebar-wrapper {
+    transform: translateX(220px);
+  }
+
+  .main-page .mobile-sidebar-wrapper {
+    display: none;
+    visibility: hidden;
+  }
+
+  .main-page main {
+    margin-left: 220px;
+  }
 }

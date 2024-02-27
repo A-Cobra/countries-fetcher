@@ -2,10 +2,10 @@ $medium-gray: rgba(180, 180, 180, 1);
 $dark-gray: rgb(80, 80, 80);
 
 nav {
+  z-index: 100;
   width: 100%;
   display: grid;
   gap: 25px;
-  height: 100vh;
   background-color: $dark-gray;
   padding: 15px 15px;
 
@@ -23,6 +23,7 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    flex-wrap: wrap;
     &.mobile {
       flex-direction: row;
     }
@@ -35,5 +36,12 @@ nav {
         color: $medium-gray;
       }
     }
+  }
+}
+
+@media screen and (min-width: 678px) {
+  nav {
+    gap: 25px;
+    height: 100vh;
   }
 }
