@@ -6,6 +6,7 @@ $selected-background-color: rgb(125, 125, 125);
   border: solid 2px black;
   border-radius: $border-radius;
   position: relative;
+  cursor: pointer;
   &-header {
     display: flex;
     flex-wrap: wrap;

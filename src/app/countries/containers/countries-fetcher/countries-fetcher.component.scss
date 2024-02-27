@@ -1,12 +1,28 @@
 $border-radius: 20px;
 
+.results-container {
+  background-color: aqua;
+  display: flex;
+  row-gap: 20px;
+  column-gap: 25px;
+  flex-wrap: wrap;
+}
+
 .country-cards-component {
+  flex: 1 1 600px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-evenly;
+  max-height: 82vh;
+  overflow-y: auto;
   .country-card-wrapper {
     flex: 1 0 300px;
     max-width: 400px;
   }
+}
+
+.extended-card-wrapper {
+  flex: 1 0 400px;
+  max-width: 450px;
 }
