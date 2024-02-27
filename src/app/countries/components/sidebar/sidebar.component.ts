@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  @Input() isMobileVersion = false;
+
   navigationRoutes = [
     { path: '/countries', name: 'Home' },
     { path: '/mock1', name: 'mock1' },

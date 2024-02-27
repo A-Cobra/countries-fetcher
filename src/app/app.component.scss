@@ -1,0 +1,15 @@
+.main-page {
+  .app-sidebar-wrapper {
+    width: 220px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+  main {
+    margin-left: 220px;
+  }
+}
+
+@media screen and (min-width: 678px) {
+}

@@ -1,9 +1,14 @@
 <header>
   <nav>
-    <div>Logo</div>
-    <ul>
+    <div
+      class="logo-container"
+      [ngStyle]="{ display: isMobileVersion ? 'none' : 'flex' }"
+    >
+      Logo
+    </div>
+    <ul class="navigation-links" [ngClass]="{ mobile: isMobileVersion }">
       <ng-container *ngFor="let navigationRoute of navigationRoutes">
-        <a [routerLink]="navigationRoute.path">
+        <a [routerLink]="navigationRoute.path" routerLinkActive="active">
           <li>
             {{ navigationRoute.name }}
           </li></a
