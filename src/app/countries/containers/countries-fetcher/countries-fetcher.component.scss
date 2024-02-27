@@ -1,12 +1,12 @@
 $border-radius: 20px;
 
 .results-container {
-  background-color: aqua;
   display: flex;
   row-gap: 20px;
   column-gap: 25px;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 20px 30px;
 }
 
 .country-cards-component {
@@ -26,4 +26,10 @@ $border-radius: 20px;
 .extended-card-wrapper {
   flex: 1 0 400px;
   max-width: 450px;
+}
+
+@media screen and (min-width: 678px) {
+  .results-container {
+    padding: 20px 110px;
+  }
 }
